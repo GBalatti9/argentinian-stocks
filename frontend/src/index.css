@@ -1,0 +1,32 @@
+
+@keyframes text-success {
+    0% {
+        color: #fff; 
+    }
+    50% {
+        color: #28a745; 
+    }
+    100% {
+        color: #fff; 
+    }
+}
+
+@keyframes text-danger {
+    0% {
+        color: #fff; 
+    }
+    50% {
+        color: #dc3545; 
+    }
+    100% {
+        color: #fff; 
+    }
+}
+
+.animation-text-success {
+    animation: text-success 2s ease-in-out infinite; 
+}
+
+.animation-text-danger {
+    animation: text-danger 2s ease-in-out infinite; 
+}
