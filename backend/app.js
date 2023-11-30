@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { scrappWeb } = require('./helpers/webScrapping');
 
 const app = express();
 
 app.use(cors());
+app.use(express.static( path.join ( __dirname, '../frontend/dist' ) ));
+
 const port = 3000;
 
 app.get('/web-scrapping-api', async (req, res) => {
