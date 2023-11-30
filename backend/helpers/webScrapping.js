@@ -6,7 +6,7 @@ const scrappWeb = async () => {
     const page = await browser.newPage();
 
     try {
-        await page.goto('https://open.bymadata.com.ar/#/dashboard');
+        await page.goto('https://open.bymadata.com.ar/#/dashboard', { timeout: 120000 });
 
         const tableSelector = '.mat-table';
 
