@@ -11,8 +11,12 @@ app.use(express.static( path.join ( __dirname, '../frontend/dist' ) ));
 const port = 3000;
 
 app.get('/', async (req, res) => {
-    const data  = await scrappWeb();
-    res.json({ data });
+    try {        
+        const data  = await scrappWeb();
+        res.json({ data });
+    } catch (error) {
+        console.log(error);
+    }
 })
 
 // app.get('/web-scrapping-api', async (req, res) => {
