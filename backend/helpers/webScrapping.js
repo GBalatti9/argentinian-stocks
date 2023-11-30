@@ -10,7 +10,7 @@ const scrappWeb = async () => {
 
         const tableSelector = '.mat-table';
 
-        await page.waitForSelector(tableSelector);
+        await page.waitForSelector(tableSelector, { timeout: 60000 });
 
         const extractTableData = async (selector) => {
             return await page.$$eval(`${selector} tbody tr`, (rows) => {
