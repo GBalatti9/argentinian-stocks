@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 
-const URL = 'http://localhost:3000/web-scrapping-api';
+// const URL = 'http://localhost:3000/web-scrapping-api';
+const URL = 'https://happy-fox-costume.cyclic.app/web-scrapping-api';
+
 
 export const useFetch = () => {
 
