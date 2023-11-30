@@ -10,14 +10,15 @@ app.use(express.static( path.join ( __dirname, '../frontend/dist' ) ));
 
 const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('Everything working correctly...')
-})
-
-app.get('/web-scrapping-api', async (req, res) => {
+app.get('/', async (req, res) => {
     const data  = await scrappWeb();
     res.json({ data });
 })
+
+// app.get('/web-scrapping-api', async (req, res) => {
+//     const data  = await scrappWeb();
+//     res.json({ data });
+// })
 
 app.listen( process.env.PORT || port, () => {
     console.log(`App listening on ${port}...`);
