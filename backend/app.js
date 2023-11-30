@@ -10,6 +10,10 @@ app.use(express.static( path.join ( __dirname, '../frontend/dist' ) ));
 
 const port = 3000;
 
+app.get('/', (req, res) => {
+    res.send('Everything working correctly...')
+})
+
 app.get('/web-scrapping-api', async (req, res) => {
     const data  = await scrappWeb();
     res.json({ data });
