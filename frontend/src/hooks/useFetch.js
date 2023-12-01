@@ -1,41 +1,51 @@
 import { useEffect, useState } from "react"
 
-const URL = 'http://localhost:3000/web-scrapping-api';
-// const URL = 'https://argentinian-stocks.onrender.com';
+import stocks from '../data/scrapedData.json';
 
+// const URL = 'http://localhost:3000/web-scrapping-api';
 
 export const useFetch = () => {
 
-    const [ info, setInfo ] = useState({
+    const [info, setInfo] = useState({
         lastActualization: '',
         data: []
     });
 
-    const fetchApi = async (url) => {
-        try {
-            const response = await fetch(url);
-            const { data } = await response.json();
-            setInfo({
-                lastActualization: new Date().toString().split(' GMT')[0],
-                data,
-            });
 
-            console.log('Datos actualizados:', new Date());
-            console.log('Dara:', info.data);
+    // const fetchApi = async (url) => {
+    //     try {
+    //         const response = await fetch(url);
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! Status: ${response.status}`);
+    //         }
+    //         const { data } = await response.json();
 
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
+    //         console.log({ data });
+    //         setInfo({
+    //             lastActualization: new Date().toString().split(' GMT')[0],
+    //             data,
+    //         });
+
+    //         console.log('Datos actualizados:', new Date());
+    //         console.log('Dara:', info.data);
+
+    //     } catch (error) {
+    //         console.error('Error fetching data:', error);
+    //     }
+    // };
 
     useEffect(() => {
-        fetchApi(URL);
+        setInfo({
+            lastActualization: new Date().toString().split(' GMT')[0],
+            data: stocks
+        })
+        // fetchApi(URL);
 
-        const intervalId = setInterval(() => {
-            fetchApi(URL);
-        }, 60000); 
+        // const intervalId = setInterval(() => {
+        //     fetchApi(URL);
+        // }, 60000); 
 
-        return () => clearInterval(intervalId);
+        // return () => clearInterval(intervalId);
     }, [])
 
     return {
