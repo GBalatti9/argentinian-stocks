@@ -7,11 +7,12 @@ const scrappWeb = async () => {
     try {
         browser = await chromium.launch();
         const page = await browser.newPage();
-
+        
         await page.goto('https://open.bymadata.com.ar/#/dashboard', { timeout: 120000 });
         const tableSelector = '.mat-table';
+        
 
-        await page.waitForSelector(tableSelector, { timeout: 60000 });
+        await page.waitForSelector(tableSelector);
 
         const extractTableData = async (selector) => {
             return await page.$$eval(`${selector} tbody tr`, (rows) => {
