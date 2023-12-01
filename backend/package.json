@@ -2,13 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app",
     "postinstall": "npx playwright install",
     "dev": "npx nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },  
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -16,5 +16,8 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "playwright": "^1.40.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
