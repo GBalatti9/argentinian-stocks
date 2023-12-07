@@ -19,8 +19,12 @@ export const Container = () => {
         return () => clearTimeout(timeoutId);
     }, [data]);
 
-    const bullish = data.slice(0, 5);
-    const bearish = data.slice(5);
+    let bullish;
+    let bearish;
+    if(data.length > 1) {
+        bullish = data.slice(0, 5);
+        bearish = data.slice(5);
+    }
     const columnTitles = ["Especie", "Último precio", "Var. Diaria (%)"];
 
     const bullishStonks = {

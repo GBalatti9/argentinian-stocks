@@ -1,41 +1,33 @@
-// const express = require('express');
-// const cors = require('cors');
-// const path = require('path');
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
 const { scrappWeb } = require('./helpers/webScrapping');
 
 const scrapping = async () => {
-    await scrappWeb();
+    return await scrappWeb();
 }
 
-setInterval(async () => {
-    await scrapping();
-}, 60000);
+// setInterval(async () => {
+//     await scrapping();
+// }, 60000);
 
 // scrapping();
 
-// const app = express();
+const app = express();
 
-// app.use(cors());
-// app.use(express.static( path.join ( __dirname, '../frontend/dist' ) ));
+app.use(cors());
 
-// const port = 3000;
+const port = 3000;
 
-// app.get('/', async (req, res) => {
+app.get('/', async (req, res) => {
+    res.send("App working correctly...");
+})
 
-//     res.send("App working correctly...")
-//     // try {        
-//     //     const data  = await scrappWeb();
-//     //     res.json({ data });
-//     // } catch (error) {
-//     //     console.log(error);
-//     // }
-// })
+app.get('/web-scrapping-api', async (req, res) => {
+    const data  = await scrapping();
+    res.json({ data });
+})
 
-// app.get('/web-scrapping-api', async (req, res) => {
-//     const data  = await scrappWeb();
-//     res.json({ data });
-// })
-
-// app.listen( process.env.PORT || port, () => {
-//     console.log(`App listening on ${port}...`);
-// })
+app.listen( process.env.PORT || port, () => {
+    console.log(`App listening on ${port}...`);
+})
