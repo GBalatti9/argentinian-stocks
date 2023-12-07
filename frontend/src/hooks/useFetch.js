@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 
+// Using this stocks when playwright doesnt work
 import stocks from '../data/scrapedData.json';
 
 const URL = 'http://localhost:3000/web-scrapping-api';
@@ -16,6 +17,13 @@ export const useFetch = () => {
         try {
             const response = await fetch(url);
             if (!response.ok) {
+                // If somehow fetch doesn't works then the stocks shown are gonna be the imported from '../data/scrapedData.json';
+                setInfo({
+                    lastActualization: new Date().toString().split(' GMT')[0],
+                    data: stocks
+                });
+
+                console.error("USANDO STOCKS");
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const { data } = await response.json();
@@ -24,11 +32,11 @@ export const useFetch = () => {
             
             setInfo({
                 lastActualization: new Date().toString().split(' GMT')[0],
-                data: stocks
+                data
             });
 
             console.log('Datos actualizados:', new Date());
-            console.log('Dara:', info.data);
+            console.log('Data:', info.data);
 
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -36,10 +44,7 @@ export const useFetch = () => {
     };
 
     useEffect(() => {
-        setInfo({
-            lastActualization: new Date().toString().split(' GMT')[0],
-            data: stocks,
-        })
+
         fetchApi(URL);
 
         const intervalId = setInterval(() => {
