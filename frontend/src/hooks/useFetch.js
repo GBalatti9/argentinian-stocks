@@ -12,10 +12,12 @@ export const useFetch = () => {
         data: []
     });
 
+    console.log({ info });
 
     const fetchApi = async (url) => {
         try {
             const response = await fetch(url);
+            console.log({ response });
             if (!response.ok) {
                 // If somehow fetch doesn't works then the stocks shown are gonna be the imported from '../data/scrapedData.json';
                 setInfo({
