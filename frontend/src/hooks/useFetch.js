@@ -3,7 +3,8 @@ import { useEffect, useState } from "react"
 // Using this stocks when playwright doesnt work
 import stocks from '../data/scrapedData.json';
 
-const URL = 'http://localhost:3000/web-scrapping-api';
+// const URL = 'http://localhost:3000/web-scrapping-api';
+const URL = 'https://argentinian-stocks-backend.onrender.com/web-scrapping-api';
 
 export const useFetch = () => {
 

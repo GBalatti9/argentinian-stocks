@@ -1,23 +1,17 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const { scrappWeb } = require('./helpers/webScrapping');
+const { webScrapping } = require('./helpers/puppeteer');
 
 const scrapping = async () => {
-    return await scrappWeb();
+    return await webScrapping();
 }
-
-// setInterval(async () => {
-//     await scrapping();
-// }, 60000);
-
-// scrapping();
 
 const app = express();
 
 app.use(cors());
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.get('/', async (req, res) => {
     res.send("App working correctly...");
@@ -28,6 +22,6 @@ app.get('/web-scrapping-api', async (req, res) => {
     res.json({ data });
 })
 
-app.listen( process.env.PORT || port, () => {
-    console.log(`App listening on ${port}...`);
+app.listen( PORT, () => {
+    console.log(`App listening on ${PORT}...`);
 })
