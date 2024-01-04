@@ -3,12 +3,12 @@ import { useEffect, useState } from "react"
 // Using this stocks when playwright doesnt work
 import stocks from '../data/scrapedData.json';
 
-// const URL = 'http://localhost:3000/web-scrapping-api';
-const URL = 'https://argentinian-stocks-backend.onrender.com/web-scrapping-api';
+const URL = 'http://localhost:3000/web-scrapping-api';
+// const URL = 'https://argentinian-stocks-backend.onrender.com/web-scrapping-api';
 
 export const useFetch = () => {
 
-    const [info, setInfo] = useState({
+    const [ info, setInfo ] = useState({
         lastActualization: '',
         data: []
     });
@@ -20,7 +20,7 @@ export const useFetch = () => {
             const response = await fetch(url);
             console.log({ response });
             if (!response.ok) {
-                // If somehow fetch doesn't works then the stocks shown are gonna be the imported from '../data/scrapedData.json';
+                // If somehow the fetch response doesn't works then the stocks shown are gonna be the imported from '../data/scrapedData.json';
                 setInfo({
                     lastActualization: new Date().toString().split(' GMT')[0],
                     data: stocks
@@ -42,7 +42,12 @@ export const useFetch = () => {
             console.log('Data:', info.data);
 
         } catch (error) {
-            console.error('Error fetching data:', error);
+            // If somehow fetch doesn't works then the stocks shown are gonna be the imported from '../data/scrapedData.json';
+            console.error('Error fetching data: ', error);
+            setInfo({
+                lastActualization: new Date().toString().split(' GMT')[0],
+                data: stocks
+            });
         }
     };
 
@@ -59,5 +64,6 @@ export const useFetch = () => {
 
     return {
         info,
+        setInfo,
     }
 }

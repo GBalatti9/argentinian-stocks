@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import { Table } from "./components/Table";
-import { useFetch } from "./hooks/useFetch"
+import { useFetch } from "./hooks/useFetch";
+import dataFromJson from './data/scrapedData.json';
 
 export const Container = () => {
     const { info } = useFetch();
     const { data, lastActualization } = info;
-    console.log({ data });
 
     let bullish;
     let bearish;
@@ -32,10 +32,14 @@ export const Container = () => {
         animation: 'animation-text-danger',
     }
 
+
+
     return (
         <>
             {
-                data.length === 0 ? (
+                data.length === 0 ?
+                
+                (
                     <LoadingSpinner />
                 ) : (
                     <div style={{ 
