@@ -7,6 +7,7 @@ import stocks from '../data/scrapedData.json';
 const URL = 'https://argentinian-stocks-backend.onrender.com/web-scrapping-api';
 
 export const useFetch = () => {
+    console.log('dentro de useFetch');
 
     const [ info, setInfo ] = useState({
         lastActualization: '',
@@ -16,6 +17,7 @@ export const useFetch = () => {
     console.log({ info });
 
     const fetchApi = async (url) => {
+        console.log('dentro de fetchApi');
         try {
             const response = await fetch(url);
             console.log({ response });
@@ -52,6 +54,7 @@ export const useFetch = () => {
     };
 
     useEffect(() => {
+        console.log('dentro del useEffect');
 
         fetchApi(URL);
 
