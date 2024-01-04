@@ -17,8 +17,8 @@ export const useFetch = () => {
     console.log({ info });
 
     const fetchApi = async (url) => {
-        console.log('dentro de fetchApi');
         try {
+            console.log('dentro de fetchApi');
             const response = await fetch(url);
             console.log({ response });
             if (!response.ok) {
@@ -54,15 +54,20 @@ export const useFetch = () => {
     };
 
     useEffect(() => {
-        console.log('dentro del useEffect');
-
-        fetchApi(URL);
-
-        const intervalId = setInterval(() => {
+        try {
+            
+            console.log('dentro del useEffect');
+            
             fetchApi(URL);
-        }, 60000); 
-
-        return () => clearInterval(intervalId);
+            
+            const intervalId = setInterval(() => {
+                fetchApi(URL);
+            }, 60000); 
+            
+            return () => clearInterval(intervalId);
+        } catch (error) {
+            console.log("ERROR: ", error);
+        }
     }, [])
 
     return {

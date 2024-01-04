@@ -37,11 +37,11 @@ export const Container = () => {
     return (
         <>
             {
-                // data.length === 0 ?
+                data.length === 0 ?
                 
-                // (
-                //     <LoadingSpinner />
-                // ) : 
+                (
+                    <LoadingSpinner />
+                ) : 
                 (
                     <div style={{ 
                             height: '100vh', 
