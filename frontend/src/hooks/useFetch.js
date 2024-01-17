@@ -7,20 +7,14 @@ import stocks from '../data/scrapedData.json';
 const URL = 'https://argentinian-stocks-backend.onrender.com/web-scrapping-api';
 
 export const useFetch = () => {
-    console.log('dentro de useFetch');
-
     const [ info, setInfo ] = useState({
         lastActualization: '',
         data: []
     });
 
-    console.log({ info });
-
     const fetchApi = async (url) => {
         try {
-            console.log('dentro de fetchApi');
             const response = await fetch(url);
-            console.log({ response });
             if (!response.ok) {
                 // If somehow the fetch response doesn't works then the stocks shown are gonna be the imported from '../data/scrapedData.json';
                 setInfo({
@@ -32,16 +26,17 @@ export const useFetch = () => {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const { data } = await response.json();
+            let dataFromJson;
 
-            console.log("DATA API: ",{ data });
-            
+            // When the market is close data is undefined so to prevent an error the info is gonna be taken from stocks.json.
+            if ( data === undefined ) {
+                dataFromJson = stocks;
+            }
+
             setInfo({
                 lastActualization: new Date().toString().split(' GMT')[0],
-                data
+                data: data === undefined ? dataFromJson : data
             });
-
-            console.log('Datos actualizados:', new Date());
-            console.log('Data:', info.data);
 
         } catch (error) {
             // If somehow fetch doesn't works then the stocks shown are gonna be the imported from '../data/scrapedData.json';
