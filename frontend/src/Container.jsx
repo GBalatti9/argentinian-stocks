@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import { Table } from "./components/Table";
 import { useFetch } from "./hooks/useFetch";
-import dataFromJson from './data/scrapedData.json';
 
 export const Container = () => {
     const { info } = useFetch();
-    const { data, lastActualization } = info;
+    const { data, lastActualization, isLoading } = info;
 
     let bullish;
     let bearish;
@@ -37,8 +35,7 @@ export const Container = () => {
     return (
         <>
             {
-                data.length === 0 ?
-                
+                isLoading ?
                 (
                     <LoadingSpinner />
                 ) : 
@@ -53,8 +50,7 @@ export const Container = () => {
                             Your browser does not support the video.
                         </video>
                         <p className="text-center">
-                            Última actualización:
-                            {lastActualization}
+                            Última actualización: { lastActualization } 
                         </p>
 
                         <div className="d-flex flex-column justify-content-around align-items-center d-md-none">
