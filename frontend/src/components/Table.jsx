@@ -1,7 +1,6 @@
 
-export const Table = ({ stonksReceived }) => {
 
-    const { titles, stonks, caption, color, animation } = stonksReceived;
+export const Table = ({ titles, stocks, caption, color, animation }) => {
 
     return (
         <div className="col-11 col-md-5">
@@ -20,13 +19,17 @@ export const Table = ({ stonksReceived }) => {
                 </thead>
                 <tbody>
                     {
-                        stonks.map((element, i) => (
-                            <tr key={i}>
-                                {
-                                    element.map((el, j) => (
-                                        <td key={el + j} className={`${j === 2 ? `${animation}` : ''}`}> {el} </td>
-                                    ))
-                                }
+                        stocks?.map(( stock, i ) => (
+                            <tr key={ stock + i }>
+                                <td>{ stock.ticker }</td>
+                                <td>{ stock.price }</td>
+                                <td className={`${ caption === 'Bullish TOP 5' 
+                                                    ? `${animation}` 
+                                                    : caption === 'Bearish TOP 5' 
+                                                    ? `${ animation }` 
+                                                    : '' }`}>
+                                    { stock.variation }
+                                </td>
                             </tr>
                         ))
                     }

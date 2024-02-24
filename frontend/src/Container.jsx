@@ -1,23 +1,29 @@
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import { Table } from "./components/Table";
 import { useFetch } from "./hooks/useFetch";
+import { useFetchHook } from "./hooks/useFetchHook";
 
 export const Container = () => {
     const { info } = useFetch();
-    const { data, lastActualization, isLoading } = info;
+    const { stocksData } = useFetchHook();
+    const { loading, data, lastActualizacion } = stocksData;
+    console.log(lastActualizacion);
 
-    let bullish;
-    let bearish;
-    if (data.length > 1) {
-        bullish = data.slice(0, 5);
-        bearish = data.slice(5);
-    }
-    const columnTitles = ["Especie", "Último precio", "Var. Diaria (%)"];
+    // const { data, lastActualization, isLoading } = info;
+
+    // let bullish;
+    // let bearish;
+    // if (data.length > 1) {
+    //     bullish = data.slice(0, 5);
+    //     bearish = data.slice(5);
+    // }
+    // // const columnTitles = ["Ticker", "Último precio", "Var. Diaria (%)"];
+    const columnTitles = ["Ticker", "Último precio", "Var. Diaria (%)"];
 
     const bullishStonks = {
         caption: 'Bullish TOP 5',
         titles: columnTitles,
-        stonks: bullish,
+        stocks: data[1],
         color: 'text-success',
         animation: 'animation-text-success',
     };
@@ -25,17 +31,15 @@ export const Container = () => {
     const bearishStonks = {
         caption: 'Bearish TOP 5',
         titles: columnTitles,
-        stonks: bearish,
+        stocks: data[0],
         color: 'text-danger',
         animation: 'animation-text-danger',
     }
 
-
-
     return (
         <>
             {
-                isLoading ?
+                loading && data.length === 0 ?
                 (
                     <LoadingSpinner />
                 ) : 
@@ -50,17 +54,19 @@ export const Container = () => {
                             Your browser does not support the video.
                         </video>
                         <p className="text-center">
-                            Última actualización: { lastActualization } 
+                            La información se actualiza cada 20 minutos.
+                            <br />
+                            Última vez: { lastActualizacion }
                         </p>
 
-                        <div className="d-flex flex-column justify-content-around align-items-center d-md-none">
-                            <Table stonksReceived={bullishStonks} />
-                            <Table stonksReceived={bearishStonks} />
-                        </div>
+                        {/* <div className="d-flex flex-column justify-content-around align-items-center d-md-none">
+                            <Table {...bullishStonks} />
+                            <Table {...bearishStonks} />
+                        </div> */}
 
                         <div className="d-none d-md-flex justify-content-around align-items-center">
-                            <Table stonksReceived={bullishStonks} />
-                            <Table stonksReceived={bearishStonks} />
+                            <Table {...bullishStonks} />
+                            <Table {...bearishStonks} />
                         </div>
                     </div>
                 )

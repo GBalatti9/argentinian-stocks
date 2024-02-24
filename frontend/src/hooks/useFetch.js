@@ -31,11 +31,11 @@ export const useFetch = () => {
                     lastActualization: format(new Date(), 'EEEE d MMM yyyy', { locale: es }),
                     data: stocks,
                 }))
-                console.error("USANDO STOCKS");
+                // console.error("USANDO STOCKS");
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const { data } = await response.json();
-            console.log( data );
+            // console.log( data );
             let dataFromJson;
 
             // When the market is close data is undefined so to prevent an error the info is gonna be taken from stocks.json.
@@ -51,7 +51,7 @@ export const useFetch = () => {
             }))
         } catch (error) {
             // If somehow fetch doesn't works then the stocks shown are gonna be the imported from '../data/scrapedData.json';
-            console.error('Error fetching data: ', error);
+            // console.error('Error fetching data: ', error);
             setInfo(( prevInfo ) => ({
                 ...prevInfo,
                 isLoading: false,
@@ -70,7 +70,7 @@ export const useFetch = () => {
             
             return () => clearInterval(intervalId);
     }, [])
-    console.log(new Date().toString().split(' GMT')[0]);
+    // console.log(new Date().toString().split(' GMT')[0]);
 
     return {
         info,
