@@ -33,10 +33,10 @@ export const useFetchHook = () => {
 
             });
 
-            const orderData = formattedData.sort((a, b) => a.price - b.price);
+            const orderData = formattedData.sort((a, b) => a.variation - b.variation);
 
             const worstFive = orderData.slice(0, 5);
-            const topFive = orderData.slice(-5);
+            const topFive = orderData.slice(-5).reverse();
 
             const stocksNeeded = [worstFive, topFive];
 
