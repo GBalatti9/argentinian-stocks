@@ -36,7 +36,7 @@ export const Container = () => {
                 (
                     <div class="absolute top-0 z-[-2] h-screen w-screen bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
                         <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                            <p className="text-center">
+                            <p className="text-center mb-4">
                                 La información se actualiza cada 20 minutos.
                                 <br />
                                 Última vez: { lastActualizacion }
