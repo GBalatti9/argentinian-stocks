@@ -6,7 +6,7 @@ export const Table = ({ titles, stocks, caption, color, animation }) => {
         <div className="col-11 col-md-5">
             <div className="border rounded overflow-hidden bg-gray-50 shadow">
             <table className="table-fixed w-full text-center">
-                <thead className="bg-gray-50 border-b-2 border-gray-200">
+                <thead className="bg-gray-100 border-b-2 border-gray-200">
                     <tr>
                         {
                             titles.map((title, i) => (
