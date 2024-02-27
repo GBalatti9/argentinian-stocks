@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    cursor: url('../maslaton.jpeg'), pointer;
+}
+
 @keyframes text-success {
     0% {
         color: #fff; 
