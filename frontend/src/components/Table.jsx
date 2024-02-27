@@ -6,11 +6,11 @@ export const Table = ({ titles, stocks, caption, color, animation }) => {
         <div className="col-11 mb-4">
             <div className="border rounded overflow-hidden bg-gray-50 shadow">
             <table className="table-fixed w-full text-center">
-                <thead className="bg-gray-400 border-b-2 border-gray-200">
+                <thead className="bg-gray-700 border-b-2 border-gray-200">
                     <tr>
                         {
                             titles.map((title, i) => (
-                                <th className="p-3" key={title + i}>{title}</th>
+                                <th className="p-3 text-white font-medium" key={title + i}>{title}</th>
                             ))
                         }
                     </tr>
