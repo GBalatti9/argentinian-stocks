@@ -6,7 +6,7 @@ export const Container = () => {
     const { stocksData } = useFetchHook();
     const { loading, data, lastActualizacion } = stocksData;
 
-    const columnTitles = ["Ticker", "Últ. precio", "Var. (%)"];
+    const columnTitles = ["Acción", "Últ. precio", "Var. (%)"];
 
     const bullishStonks = {
         caption: 'Bullish TOP 5',
