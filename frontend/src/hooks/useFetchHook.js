@@ -24,7 +24,6 @@ export const useFetchHook = () => {
             }
 
             const data = await response.text();
-            // console.log({ data });
             const formattedData = data.split('\n').slice(1).map((element) => {
 
                 // De esta manera elimino el \r.
@@ -60,11 +59,11 @@ export const useFetchHook = () => {
     useEffect(() => {
         const fetchData = () => {
             fetchApi();
-            const intervalId = setInterval(fetchApi, 21 * 60 * 1000); // Llamar cada 21 minutos
-            return () => clearInterval(intervalId); // Limpiar el intervalo cuando el componente se desmonte
+            const intervalId = setInterval(fetchApi, 21 * 60 * 1000); 
+            return () => clearInterval(intervalId); 
         };
     
-        fetchData(); // Llamar la primera vez al montar el componente
+        fetchData(); 
     }, []);
 
     return {
