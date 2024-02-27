@@ -33,7 +33,7 @@ export const Container = () => {
                 ) : 
                 (
                         <div className="mx-auto w-96 d-flex flex-col justify-center">
-                            <div className="p-3 my-4 mx-2">
+                            <div className="p-3 my-8 mx-2">
                                 <h1 className="text-3xl font-bold">Las cinco acciones <span className="text-violet-500"> más bullish y bearish </span> del día</h1>
                             </div>
                             <div className="d-flex flex-column justify-content-around align-items-center">
