@@ -1,7 +1,7 @@
 
 
 export const Table = ({ titles, stocks, caption, color, animation }) => {
-console.log({stocks});
+
     return (
         <div className="col-11 mb-4">
             <div className="border rounded overflow-hidden bg-gray-50 shadow">
