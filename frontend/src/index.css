@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 *{
-    cursor: url('../maslaton.jpeg'), pointer;
+    cursor: url('../maslatoncursor.png'), pointer;
 }
 
 @keyframes text-success {
