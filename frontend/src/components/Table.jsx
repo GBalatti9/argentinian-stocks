@@ -37,11 +37,3 @@ export const Table = ({ titles, stocks, caption, color, animation }) => {
         </div>
     )
 }
-
-{/* <td className={`${ caption === 'Bullish TOP 5' 
-? `${animation}` 
-: caption === 'Bearish TOP 5' 
-? `${ animation }` 
-: '' }` }>
-{ stock.variation }
-</td> */}
