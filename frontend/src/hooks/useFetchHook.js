@@ -59,7 +59,7 @@ export const useFetchHook = () => {
     useEffect(() => {
         const fetchData = () => {
             fetchApi();
-            const intervalId = setInterval(fetchApi, 21 * 60 * 1000); 
+            const intervalId = setInterval(fetchApi, 3 * 60 * 1000); 
             return () => clearInterval(intervalId); 
         };
     
