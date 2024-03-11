@@ -1,10 +1,10 @@
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import { Table } from "./components/Table";
-import { useFetchHook } from "./hooks/useFetchHook";
+import { firebaseHook } from "./hooks/firebaseHook";
 
 export const Container = () => {
-    const { stocksData } = useFetchHook();
-    const { loading, data, lastActualizacion } = stocksData;
+    const { stocks } = firebaseHook();
+    const { data, loading } = stocks;
 
     const columnTitles = ["Acción", "Últ. precio", "Var. (%)"];
 
@@ -40,11 +40,6 @@ export const Container = () => {
                                 <Table {...bullishStonks} />
                                 <Table {...bearishStonks} />
                             </div>
-                            <p className="text-center mb-4">
-                                La información se actualiza cada 20 minutos.
-                                <br />
-                                Última vez: { lastActualizacion }
-                            </p>
                         </div>
                 )
             }

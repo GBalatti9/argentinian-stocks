@@ -1,6 +1,6 @@
 
 
-export const Table = ({ titles, stocks, caption, color, animation }) => {
+export const Table = ({  caption, stocks, titles  }) => {
 
     return (
         <div className="col-11 mb-4">
@@ -19,14 +19,14 @@ export const Table = ({ titles, stocks, caption, color, animation }) => {
                     {
                         stocks?.map(( stock, i ) => (
                             <tr key={ stock + i } >
-                                <td className="p-2 font-semibold">{ stock.ticker }</td>
-                                <td>{ stock.price }</td>
+                                <td className="p-2 font-semibold">{ stock.Ticker }</td>
+                                <td>{ stock.Precio }</td>
                                 <td className={`${ caption === 'Bullish TOP 5' 
                                                     ? `text-success` 
                                                     : caption === 'Bearish TOP 5' 
                                                     ? `text-danger` 
                                                     : '' }` }>
-                                    { stock.variation }
+                                    { stock.Variacion }
                                 </td>
                             </tr>
                         ))
