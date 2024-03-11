@@ -10,13 +10,13 @@ const env = getEnvironment();
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: env.VITE_API_KEY,
-    authDomain: env.VITE_AUTH_DOMAIN,
-    projectId: env.VITE_PROJECT_ID,
-    storageBucket: env.VITE_STORAGE_BUCKET,
-    messagingSenderId: env.VITE_MESSAGING_SENDER_ID,
-    appId: env.VITE_APP_ID,
-    measurementId: env.VITE_MEASUREMENT_ID,
+    apiKey: 'AIzaSyB7AEfXw284aimDMUDL9sBaaY_ogNX2moI',
+    authDomain: 'bullish-eb3ab.firebaseapp.com',
+    projectId: 'bullish-eb3ab',
+    storageBucket: 'bullish-eb3ab.appspot.com',
+    messagingSenderId: '115564279133',
+    appId: '1:115564279133:web:fe5dbd6d3b21dd31a6e4b4',
+    measurementId: 'G-2V41RJ9DT6'
 };
 
 // Initialize Firebase
