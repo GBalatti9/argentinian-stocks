@@ -39,7 +39,7 @@ export const Container = () => {
                                 <Table {...bearishStonks} />
                             </div>
                             <div className="pb-2">
-                                <p className="italic text-center text-sm">*El mercado opera desde las 11:00 hasta 17:00.</p>
+                                <p className="italic text-center text-sm">*El mercado opera desde las 11:00 hasta las 17:00.</p>
                             </div>
                         </div>
                 )
