@@ -1,7 +1,6 @@
-import { onSnapshot, query, getDoc, collection, getDocs, doc } from "firebase/firestore";
+import { onSnapshot, collection } from "firebase/firestore";
 import { FirebaseDB } from "../firebase/config";
 import { useEffect, useState } from "react";
-
 
 export const firebaseHook = () => {
 
@@ -12,11 +11,13 @@ export const firebaseHook = () => {
 
     useEffect(() => {
         const accionesRef = collection(FirebaseDB, 'acciones');
+
         setStocks((prevStocks) => ({
             ...prevStocks,
             loading: true,
             data: []
         }));
+
         const unsubscribe = onSnapshot(accionesRef, (snapshot) => {
             const newStocks = [];
             snapshot.forEach((doc) => {
@@ -27,6 +28,7 @@ export const firebaseHook = () => {
 
             const worstFive = orderData.slice(0, 5);
             const topFive = orderData.slice(-5).reverse();
+
             setStocks({
                 loading: false,
                 data: [worstFive, topFive],

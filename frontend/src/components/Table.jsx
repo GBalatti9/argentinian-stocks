@@ -22,9 +22,9 @@ export const Table = ({  caption, stocks, titles  }) => {
                                 <td className="p-2 font-semibold">{ stock.Ticker }</td>
                                 <td>{ stock.Precio }</td>
                                 <td className={`${ caption === 'Bullish TOP 5' 
-                                                    ? `text-success` 
+                                                    ? `text-green-700` 
                                                     : caption === 'Bearish TOP 5' 
-                                                    ? `text-danger` 
+                                                    ? `text-red-700` 
                                                     : '' }` }>
                                     { stock.Variacion }
                                 </td>

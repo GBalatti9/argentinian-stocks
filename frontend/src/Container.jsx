@@ -12,7 +12,6 @@ export const Container = () => {
         caption: 'Bullish TOP 5',
         titles: columnTitles,
         stocks: data[1],
-        color: 'text-success',
         animation: 'animation-text-success',
     };
 
@@ -20,7 +19,6 @@ export const Container = () => {
         caption: 'Bearish TOP 5',
         titles: columnTitles,
         stocks: data[0],
-        color: 'text-danger',
         animation: 'animation-text-danger',
     }
 
@@ -39,6 +37,9 @@ export const Container = () => {
                             <div className="d-flex flex-column justify-content-around align-items-center">
                                 <Table {...bullishStonks} />
                                 <Table {...bearishStonks} />
+                            </div>
+                            <div className="pb-2">
+                                <p className="italic text-center text-sm">*El mercado opera desde las 11:00 hasta 17:00.</p>
                             </div>
                         </div>
                 )
