@@ -2,6 +2,10 @@
 
 export const Table = ({  caption = '', stocks, titles  }) => {
 
+    stocks?.forEach((stock) => {
+        console.log(stock.Precio);
+    })
+
     return (
         <div className="col-11 mb-4">
             <div className="border rounded overflow-hidden bg-gray-50 shadow">
@@ -21,11 +25,10 @@ export const Table = ({  caption = '', stocks, titles  }) => {
                             <tr key={ stock + i } >
                                 <td className="p-2 font-semibold">{ stock.Ticker }</td>
                                 <td>{ stock.Precio }</td>
-                                <td className={`${ caption === 'Bullish TOP 5' 
-                                                    ? `text-green-700` 
-                                                    : caption === 'Bearish TOP 5' 
-                                                    ? `text-red-700` 
-                                                    : '' }` }>
+                                <td className={`${ 
+                                                    stock.Variacion === 0 ? 'text-black' :
+                                                    stock.Variacion > 0 ? 'text-green-700' :
+                                                    stock.Variacion < 0 ? 'text-red-700' : ''}` }>
                                     { stock.Variacion }
                                 </td>
                             </tr>

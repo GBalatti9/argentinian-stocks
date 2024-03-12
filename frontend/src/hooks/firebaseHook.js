@@ -24,9 +24,15 @@ export const firebaseHook = () => {
                 newStocks.push(doc.data());
             });
 
+            console.log({ newStocks });
+            const orderData = newStocks.sort((a, b) => a.Variacion - b.Variacion);
+
+            const worstFive = orderData.slice(0, 5);
+            const topFive = orderData.slice(-5).reverse();
+
             setStocks({
                 loading: false,
-                data: newStocks,
+                data: [worstFive, topFive, newStocks],
             });
         });
 

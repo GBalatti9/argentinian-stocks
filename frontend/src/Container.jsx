@@ -13,8 +13,7 @@ export const Container = () => {
 
     const columnTitles = ["Acción", "Últ. precio", "Var. (%)"];
 
-    const orderDataByVar = data.sort((a, b) => a.Variacion - b.Variacion);
-    const orderDataByName = data.sort((a, b) => {
+    const orderDataByName = data[2]?.sort((a, b) => {
         if (a.Ticker < b.Ticker) {
             return -1;
         }
@@ -24,19 +23,16 @@ export const Container = () => {
         return 0;
     });
 
-    const topFive = orderDataByVar.slice(-5).reverse();
-    const worstFive = orderDataByVar.slice(0, 5);
-
     const bullishStonks = {
         caption: 'Bullish TOP 5',
         titles: columnTitles,
-        stocks: topFive,
+        stocks: data[1],
     };
 
     const bearishStonks = {
         caption: 'Bearish TOP 5',
         titles: columnTitles,
-        stocks: worstFive,
+        stocks: data[0],
     }
 
     const switchTable = ( tableToSwitch ) => {
@@ -57,7 +53,10 @@ export const Container = () => {
                             {
                                 table === 'general' 
                                     ? <div className="fadeInTransition"> 
-                                        <Title text={'Todas las acciones del mercado argentino'} /> 
+                                        <Title 
+                                            startText={'Todas las acciones del'} 
+                                            colorText={'mercado argentino'}
+                                            /> 
                                             <div className="d-flex flex-column justify-content-around align-items-center">
                                                 <Table stocks={ orderDataByName } titles={ columnTitles } />
                                             </div>
@@ -66,7 +65,10 @@ export const Container = () => {
                                             </div>
                                         </div>
                                     : <div className="fadeInTransition">
-                                            <Title text={'Las cinco acciones <span className="text-violet-500"> más bullish y bearish </span> del día'} />
+                                            <Title 
+                                                startText={'Las cinco acciones'} 
+                                                colorText={'más bullish y bearish'} 
+                                                endText={'del día'} />
                                             <div className="d-flex flex-column justify-content-around align-items-center">
                                                 <Table {...bullishStonks} />
                                                 <Table {...bearishStonks} />
