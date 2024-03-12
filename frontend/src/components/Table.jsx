@@ -1,6 +1,6 @@
 
 
-export const Table = ({  caption, stocks, titles  }) => {
+export const Table = ({  caption = '', stocks, titles  }) => {
 
     return (
         <div className="col-11 mb-4">
