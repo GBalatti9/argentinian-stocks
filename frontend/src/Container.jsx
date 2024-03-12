@@ -12,14 +12,12 @@ export const Container = () => {
         caption: 'Bullish TOP 5',
         titles: columnTitles,
         stocks: data[1],
-        animation: 'animation-text-success',
     };
 
     const bearishStonks = {
         caption: 'Bearish TOP 5',
         titles: columnTitles,
         stocks: data[0],
-        animation: 'animation-text-danger',
     }
 
     return (
@@ -30,7 +28,7 @@ export const Container = () => {
                         <LoadingSpinner />
                 ) : 
                 (
-                        <div className="mx-auto w-96 d-flex flex-col justify-center">
+                        <div className="mx-auto w-96 d-flex flex-col justify-center fadeInTransition">
                             <div className="p-3 my-8 sm:my-4 mx-2">
                                 <h1 className="text-3xl font-bold">Las cinco acciones <span className="text-violet-500"> más bullish y bearish </span> del día</h1>
                             </div>

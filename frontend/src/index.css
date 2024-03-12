@@ -6,34 +6,16 @@
     cursor: url('../maslatoncursor.png'), auto;
 }
 
-@keyframes text-success {
-    0% {
-        color: #fff; 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-    50% {
-        color: #28a745; 
-    }
-    100% {
-        color: #fff; 
+    to {
+        opacity: 100;
     }
 }
 
-@keyframes text-danger {
-    0% {
-        color: #fff; 
-    }
-    50% {
-        color: #dc3545; 
-    }
-    100% {
-        color: #fff; 
-    }
+.fadeInTransition {
+    animation: fadeIn 0.4s;
 }
 
-.animation-text-success {
-    animation: text-success 2s ease-in-out infinite; 
-}
-
-.animation-text-danger {
-    animation: text-danger 2s ease-in-out infinite; 
-}
