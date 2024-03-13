@@ -1,7 +1,7 @@
 
 
 export const NavBar = ({ fn, view }) => {
-    console.log({ view });
+    
     const handleClick = ({ target }) => {
         fn( target.value )
     }
