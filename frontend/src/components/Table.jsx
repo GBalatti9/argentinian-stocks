@@ -2,10 +2,6 @@
 
 export const Table = ({  caption = '', stocks, titles  }) => {
 
-    stocks?.forEach((stock) => {
-        console.log(stock.Precio);
-    })
-
     return (
         <div className="col-11 mb-4">
             <div className="border rounded overflow-hidden bg-gray-50 shadow">

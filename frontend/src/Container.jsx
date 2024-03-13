@@ -6,7 +6,9 @@ import { firebaseHook } from "./hooks/firebaseHook";
 import { Title } from "./components/Title";
 
 export const Container = () => {
-    const [ table, setTable ] = useState('');
+    const [ table, setTable ] = useState('bullish');
+
+    console.log({ table });
 
     const { stocks } = firebaseHook();
     const { data, loading } = stocks;
@@ -48,7 +50,7 @@ export const Container = () => {
                 ) : 
                 (
                     <div className="mx-auto w-96 d-flex flex-col justify-center">
-                        <NavBar fn = { switchTable } />
+                        <NavBar fn = { switchTable } view = { table } />
                         <div className="fadeInTransition">
                             {
                                 table === 'general' 
