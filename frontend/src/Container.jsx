@@ -1,10 +1,6 @@
 import { useState } from "react";
-import { LoadingSpinner } from "./components/LoadingSpinner";
-import { NavBar } from "./components/NavBar";
-import { Table } from "./components/Table";
 import { firebaseHook } from "./hooks/firebaseHook";
-import { Title } from "./components/Title";
-import { ContainerComponent } from "./components/ContainerComponent";
+import { ContainerComponent, LoadingSpinner, NavBar } from "./components";
 
 export const Container = () => {
     const [ table, setTable ] = useState('bullish');

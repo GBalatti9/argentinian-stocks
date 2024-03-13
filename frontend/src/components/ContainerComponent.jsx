@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Table } from "./Table"
-import { Title } from "./Title"
+import { Table, Title } from "./";
 
 export const ContainerComponent = ({ data, view }) => {
     const [ orderData, setOrderData ] = useState([])
@@ -46,12 +45,12 @@ export const ContainerComponent = ({ data, view }) => {
             }
             <div className="d-flex flex-column justify-content-around align-items-center">
                 {
-                    view === 'general' ? <Table stocks = { orderData } titles = { columnTitles } />
-                    : 
-                    <>
-                    <Table stocks = { data[1] } titles = { columnTitles } />
-                    <Table stocks = { data[0] } titles = { columnTitles } />
-                    </>
+                    view === 'general' 
+                    ? <Table stocks = { orderData } titles = { columnTitles } />
+                    : <>
+                        <Table stocks = { data[1] } titles = { columnTitles } />
+                        <Table stocks = { data[0] } titles = { columnTitles } />
+                      </>
                 }
             </div>
             <div className="pb-2">
