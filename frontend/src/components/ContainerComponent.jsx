@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Table, Title } from "./";
 
 export const ContainerComponent = ({ data, view }) => {
-    const [ orderData, setOrderData ] = useState([])
+    const { worstFive, topFive, newStocks } = data;
+    const [ orderData, setOrderData ] = useState([]);
 
     const columnTitles = ["Acción", "Últ. precio", "Var. (%)"];
 
     useEffect(() => {
         if (view === 'general') {
-            const dataSortered = data[2]?.sort((a, b) => {
+            const dataSortered = newStocks?.sort((a, b) => {
                 if (a.Ticker < b.Ticker) {
                     return -1;
                 }
@@ -19,12 +20,6 @@ export const ContainerComponent = ({ data, view }) => {
             });
 
             return setOrderData(dataSortered);
-        }
-
-        if (view === 'bullish' && data.length >= 2) {
-                const bullish = [...data[1], ...data[0]];
-
-                return setOrderData(bullish)
         }
 
     }, [data, view]);
@@ -48,8 +43,8 @@ export const ContainerComponent = ({ data, view }) => {
                     view === 'general' 
                     ? <Table stocks = { orderData } titles = { columnTitles } />
                     : <>
-                        <Table stocks = { data[1] } titles = { columnTitles } />
-                        <Table stocks = { data[0] } titles = { columnTitles } />
+                        <Table stocks = { topFive } titles = { columnTitles } />
+                        <Table stocks = { worstFive } titles = { columnTitles } />
                       </>
                 }
             </div>

@@ -31,7 +31,7 @@ export const firebaseHook = () => {
 
             setStocks({
                 loading: false,
-                data: [worstFive, topFive, newStocks],
+                data: { worstFive, topFive, newStocks },
             });
         });
 
